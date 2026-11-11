@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+  
+</body>
+
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LPG Service & Booking Enquiry Portal</title>
+
+<style>
+:root {
+  --primary-color: #d9381e;
+  --primary-hover: #b82a13;
+  --bg-color: #f4f6f9;
+  --card-bg: #ffffff;
+  --text-color: #1e293b;
+  --border-color: #cbd5e1;
+  --focus-ring: rgba(217, 56, 30, 0.25);
+  --success-bg: #ecfdf5;
+  --success-text: #047857;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.5;
+}
+
+header {
+  background: linear-gradient(135deg, #e53e3e 0%, #b91c1c 100%);
+  color: white;
+  text-align: center;
+  padding: 35px 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+header p {
+  font-size: 14px;
+  opacity: 0.9;
+  margin-top: 6px;
+}
+
+.container {
+  max-width: 680px;
+  margin: -20px auto 40px;
+  padding: 32px;
+  background: var(--card-bg);
+  border-radius: 16px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.full-width {
+  grid-column: span 2;
+}
+
+@media (max-width: 600px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  .full-width {
+    grid-column: span 1;
+  }
+  .container {
+    margin: 15px;
+    padding: 20px;
+  }
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 20px 0 12px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #f1f5f9;
+  grid-column: span 2;
+}
+
+.section-title:first-of-type {
+  margin-top: 0;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #475569;
+}
+
+input, select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--text-color);
+  background-color: #fff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px var(--focus-ring);
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 15px;
+  margin-top: 24px;
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+button[type="submit"]:hover {
+  background-color: var(--primary-hover);
+}
+
+button[type="submit"]:active {
+  transform: scale(0.99);
+}
+
+button:disabled {
+  background-color: #94a3b8;
+  cursor: not-allowed;
+}
+
+#result {
+  display: none;
+  background-color: var(--success-bg);
+  border: 1px solid #a7f3d0;
+  color: var(--success-text);
+  padding: 20px;
+  margin-top: 24px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+#result h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+#result p {
+  font-size: 14px;
+  margin-bottom: 14px;
+}
+
+.btn-whatsapp {
+  display: inline-block;
+  background-color: #25d366;
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 12px 24px;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.btn-whatsapp:hover {
+  background-color: #1eb956;
+}
+
+footer {
+  text-align: center;
+  color: #64748b;
+  font-size: 13px;
+  padding: 24px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>🔥 LPG Customer Portal & Support</h1>
+  <p>Quick Service Request & Account Assistance</p>
+</header>
+
+<div class="container">
+  <form id="lpgForm" class="form-grid">
+    
+    <div class="section-title">Personal Details</div>
+
+    <div>
+      <label for="fullName">Full Name</label>
+      <input type="text" id="fullName" placeholder="John Doe" required>
+    </div>
+
+    <div>
+      <label for="mobile">Mobile Number</label>
+      <input type="tel" id="mobile" placeholder="10-digit mobile number" pattern="[0-9]{10}" required>
+    </div>
+
+    <div>
+      <label for="email">Email Address</label>
+      <input type="email" id="email" placeholder="name@example.com" required>
+    </div>
+
+    <div>
+      <label for="city">City / Region</label>
+      <input type="text" id="city" placeholder="Enter city name" required>
+    </div>
+
+    <div class="section-title">LPG Connection Details</div>
+
+    <div>
+      <label for="provider">LPG Provider</label>
+      <select id="provider" required>
+        <option value="">Select Provider</option>
+        <option value="Indane Gas">Indane Gas</option>
+        <option value="Bharatgas">Bharatgas</option>
+        <option value="HP Gas">HP Gas</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="consumerId">Consumer ID / Account No.</label>
+      <input type="text" id="consumerId" placeholder="Enter Consumer ID" required>
+    </div>
+
+    <div class="section-title">Bank Account Details (For Subsidy / Refunds)</div>
+
+    <div>
+      <label for="accountHolder">Account Holder Name</label>
+      <input type="text" id="accountHolder" placeholder="Name as in Bank Account" required>
+    </div>
+
+    <div>
+      <label for="bankName">Bank Name</label>
+      <input type="text" id="bankName" placeholder="e.g. State Bank of India" required>
+    </div>
+
+    <div>
+      <label for="accountNumber">Account Number</label>
+      <input type="text" id="accountNumber" placeholder="Enter Bank Account Number" required>
+    </div>
+
+    <div>
+      <label for="ifsc">IFSC Code</label>
+      <input type="text" id="ifsc" placeholder="e.g. SBIN0001234" pattern="[A-Za-z0-9]{11}" required>
+    </div>
+
+    <button type="submit" id="submitBtn" class="full-width">Submit Service Request</button>
+
+  </form>
+
+  <div id="result" role="status" aria-live="polite">
+    <h3>✓ Request Generated</h3>
+    <p>Your details are formatted. Click below to confirm via WhatsApp.</p>
+    <a id="whatsappLink" class="btn-whatsapp" href="#" target="_blank" rel="noopener noreferrer">
+      Send via WhatsApp
+    </a>
+  </div>
+</div>
+
+<footer>
+  © LPG Service Support Portal. All rights reserved.
+</footer>
+
+<script>
+const form = document.getElementById("lpgForm");
+const result = document.getElementById("result");
+const button = document.getElementById("submitBtn");
+const whatsappLink = document.getElementById("whatsappLink");
+
+form.addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  if(!form.reportValidity()) return;
+
+  const fullName = document.getElementById("fullName").value;
+  const mobile = document.getElementById("mobile").value;
+  const email = document.getElementById("email").value;
+  const city = document.getElementById("city").value;
+  const provider = document.getElementById("provider").value;
+  const consumerId = document.getElementById("consumerId").value;
+  const accountHolder = document.getElementById("accountHolder").value;
+  const bankName = document.getElementById("bankName").value;
+  const accountNumber = document.getElementById("accountNumber").value;
+  const ifsc = document.getElementById("ifsc").value;
+
+  const phone = "917533947819";
+
+  const message = `Hello, I would like to submit my LPG connection enquiry.
+
+*Customer Details:*
+• Name: ${fullName}
+• Phone: ${mobile}
+• Email: ${email}
+• City: ${city}
+
+*LPG Details:*
+• Provider: ${provider}
+• Consumer ID: ${consumerId}
+
+*Bank Details:*
+• Account Holder: ${accountHolder}
+• Bank: ${bankName}
+• A/C No: ${accountNumber}
+• IFSC: ${ifsc}`;
+
+  const whatsappURL = "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
+
+  whatsappLink.href = whatsappURL;
+  result.style.display = "block";
+  button.textContent = "Submitted";
+  button.disabled = true;
+
+  window.open(whatsappURL, "_blank");
+
+  result.scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
+});
+</script>
+
+</body>
+</html>
